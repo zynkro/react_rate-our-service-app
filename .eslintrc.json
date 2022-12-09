@@ -1,9 +1,7 @@
 {
   "extends": "eslint:recommended",
-  "parser": "babel-eslint",
   "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "sourceType": "module"
   },
   "env": {
     "browser": true,
@@ -12,31 +10,31 @@
   },
   "rules": {
     "max-len": [
-      "error",
+      "warn",
       {
         "code": 90,
         "comments": 90
       }
     ],
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "semi-style": ["error", "last"],
-    "strict": "error",
-    "space-before-function-paren": ["error", "never"],
-    "no-var": "error",
-    "prefer-const": "error",
-    "comma-dangle": ["error", "always-multiline"],
-    "curly": ["error", "all"],
-    "no-redeclare": ["error", { "builtinGlobals": true }],
-    "no-param-reassign": "error",
-    "operator-linebreak": ["error", "before"],
+    "indent": ["warn", 2],
+    "linebreak-style": ["warn", "unix"],
+    "quotes": ["warn", "single"],
+    "semi": ["warn", "always"],
+    "semi-style": ["warn", "last"],
+    "strict": "warn",
+    "space-before-function-paren": ["warn", "never"],
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "comma-dangle": ["warn", "always-multiline"],
+    "curly": ["warn", "all"],
+    "no-redeclare": ["warn", { "builtinGlobals": true }],
+    "no-param-reassign": "warn",
+    "operator-linebreak": ["warn", "before"],
     "no-console": "off",
     "standard/no-callback-literal": 0,
     "import/prefer-default-export": 0,
     "padding-line-between-statements": [
-      "error",
+      "warn",
       { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
       {
         "blankLine": "always",
@@ -50,7 +48,7 @@
         "next": ["const", "let", "var"]
       }
     ],
-    "brace-style": ["error", "1tbs"],
+    "brace-style": ["warn", "1tbs"],
     "object-curly-newline": [
       2,
       {
@@ -60,8 +58,5 @@
         }
       }
     ]
-  },
-  "parserOptions": {
-    "sourceType": "script"
   }
 }

@@ -16,6 +16,12 @@
     text-align: center;
   }
 
+  &__message {
+    padding-top: 10px;
+    text-align: center;
+    color: rebeccapurple;
+  }
+
   input {
     flex-grow: 2;
 

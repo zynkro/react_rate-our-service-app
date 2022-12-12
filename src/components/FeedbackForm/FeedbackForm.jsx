@@ -1,12 +1,27 @@
 import { useState } from 'react';
 
+import Button from '../shared/Button/Button';
 import Card from '../shared/Card/Card';
 import './FeedbackForm.scss';
 
 const FeedbackForm = () => {
   const [text, setText] = useState('');
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState('');
 
   const handleTextChange = (e) => {
+    if (e.target.value === '') {
+      console.log('empty string');
+      setBtnDisabled(true);
+      setMessage(null);
+    } else if (e.target.value !== '' && e.target.value.trim().length < 10) {
+      setMessage('Text must be at least 10 characters');
+      setBtnDisabled(true);
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
+
     setText(e.target.value);
   };
 
@@ -16,6 +31,7 @@ const FeedbackForm = () => {
         <h1 className='feedback-form__title'>
           How would you rate your service with us?
         </h1>
+
         <div className='feedback-form__input'>
           <input
             onChange={handleTextChange}
@@ -23,8 +39,13 @@ const FeedbackForm = () => {
             placeholder='Write a review'
             value={text}
           />
-          <button type='submit'>Send</button>
+
+          <Button type='submit' isDisabled={btnDisabled}>
+            Send
+          </Button>
         </div>
+
+        {message && <div className='feedback-form__message'>{message}</div>}
       </form>
     </Card>
   );

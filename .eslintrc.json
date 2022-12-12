@@ -24,6 +24,7 @@
     "strict": "warn",
     "space-before-function-paren": ["warn", "never"],
     "no-var": "warn",
+    "no-unused-vars": "off",
     "prefer-const": "warn",
     "comma-dangle": ["warn", "always-multiline"],
     "curly": ["warn", "all"],

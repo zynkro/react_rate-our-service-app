@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
-import './FeedbackItem.scss';
+/* https://react-icons.github.io/react-icons/icons?name=fa */
+import { FaTimes } from 'react-icons/fa';
 
 import Card from '../shared/Card/Card';
 

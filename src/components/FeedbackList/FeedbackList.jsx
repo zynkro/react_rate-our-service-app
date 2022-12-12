@@ -24,7 +24,7 @@ const FeedbackList = ({ feedbacks, handleDelete }) => {
 FeedbackList.propTypes = {
   feedbacks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       rating: PropTypes.number.isRequired,
     }),

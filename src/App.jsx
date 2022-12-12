@@ -12,7 +12,8 @@ function App() {
   const [feedbacks, setFeedbacks] = useState(feedbackData);
 
   const addFeedback = (newFeedback) => {
-    console.log(newFeedback);
+    newFeedback.id = uuidv4();
+    setFeedbacks([newFeedback, ...feedbacks]);
   };
 
   const deleteFeedback = (id) => {
@@ -26,8 +27,8 @@ function App() {
       <Header title='Rate Our Service' />
 
       <div className='container'>
-        <FeedbackStats feedbacks={feedbacks} />
         <FeedbackForm handleAdd={addFeedback} />
+        <FeedbackStats feedbacks={feedbacks} />
         <FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
       </div>
     </>

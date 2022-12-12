@@ -5,7 +5,7 @@ import Card from '../shared/Card/Card';
 import './FeedbackForm.scss';
 import SelectRating from '../SelectRating/SelectRating';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ handleAdd }) => {
   const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
@@ -27,11 +27,28 @@ const FeedbackForm = () => {
     setText(e.target.value);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    // Additional input sanitation, because there are ways
+    // to enable button on the client and submit the form
+    if (text.trim().length >= 10) {
+      const newFeedback = {
+        text,
+        rating,
+      };
+
+      handleAdd(newFeedback);
+
+      setText(''); // clear the text field after form submisson
+    }
+  };
+
   return (
     <Card>
-      <form className='feedback-form'>
+      <form onSubmit={handleFormSubmit} className='feedback-form'>
         <h1 className='feedback-form__title'>
-          How would you rate your service with us?
+          How would you rate our service?
         </h1>
 
         <SelectRating rating={rating} setRating={setRating} />

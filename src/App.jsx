@@ -10,6 +10,10 @@ import feedbackData from './data/feedbackData';
 function App() {
   const [feedbacks, setFeedbacks] = useState(feedbackData);
 
+  const addFeedback = (newFeedback) => {
+    console.log(newFeedback);
+  };
+
   const deleteFeedback = (id) => {
     if (confirm('Are you sure?')) {
       setFeedbacks(feedbacks.filter((feedback) => feedback.id !== id));
@@ -19,9 +23,10 @@ function App() {
   return (
     <>
       <Header title='Rate Our Service' />
+
       <div className='container'>
-        <FeedbackForm />
         <FeedbackStats feedbacks={feedbacks} />
+        <FeedbackForm handleAdd={addFeedback} />
         <FeedbackList feedbacks={feedbacks} handleDelete={deleteFeedback} />
       </div>
     </>

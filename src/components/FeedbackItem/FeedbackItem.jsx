@@ -5,14 +5,16 @@ import { FaTimes } from 'react-icons/fa';
 
 import Card from '../shared/Card/Card';
 
+import './FeedbackItem.scss';
+
 function FeedbackItem({ feedback, handleDelete }) {
   return (
     <Card>
-      <div className='num-display'>{feedback.rating}</div>
-      <button onClick={ () => handleDelete(feedback.id) } className="close">
-        <FaTimes color="#ff6a95" />
+      <div className='feedback-item__rating-number'>{feedback.rating}</div>
+      <button onClick={() => handleDelete(feedback.id)} className='close'>
+        <FaTimes color='#ff6a95' />
       </button>
-      <div className='text-display'>{feedback.text}</div>
+      <div className='feedback-item__text'>{feedback.text}</div>
     </Card>
   );
 }

@@ -1,3 +1,5 @@
+$color-accent-pink: rgb(255, 106, 149);
+
 .header {
   height: 80px;
   margin-bottom: 30px;
@@ -6,9 +8,9 @@
   justify-content: center;
   align-items: center;
 
-  background: black;
+  background: #222;
 
   &__title {
-    color: cyan;
+    color: $color-accent-pink;
   }
 }

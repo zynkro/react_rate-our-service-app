@@ -1,4 +1,56 @@
+$color-accent-pink: rgb(255, 106, 149);
+
 .feedback-form {
+  &__title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  &__rating-select-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+
+    margin: 30px 0;
+
+    & li {
+      position: relative;
+      height: 50px;
+      width: 50px;
+
+      list-style: none;
+      border: 1px #eee solid;
+      border-radius: 50%;
+
+      background: #f4f4f4;
+      text-align: center;
+      font-size: 19px;
+
+      transition: 0.3s;
+
+      &:hover {
+        background: $color-accent-pink;
+        color: #fff;
+      }
+
+      & label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 50px;
+        height: 50px;
+
+        padding: 10px;
+        border-radius: 50%;
+
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
   &__input {
     display: flex;
     flex-direction: row;
@@ -7,19 +59,6 @@
 
     border: 1px solid #ccc;
     border-radius: 8px;
-  }
-
-  &__title {
-    padding-bottom: 0.5rem;
-
-    font-size: 1.4rem;
-    text-align: center;
-  }
-
-  &__message {
-    padding-top: 10px;
-    text-align: center;
-    color: rebeccapurple;
   }
 
   input {
@@ -31,5 +70,11 @@
 
   input:focus {
     outline: none;
+  }
+
+  &__message {
+    padding-top: 10px;
+    text-align: center;
+    color: $color-accent-pink;
   }
 }

@@ -3,9 +3,11 @@ import { useState } from 'react';
 import Button from '../shared/Button/Button';
 import Card from '../shared/Card/Card';
 import './FeedbackForm.scss';
+import SelectRating from '../SelectRating/SelectRating';
 
 const FeedbackForm = () => {
   const [text, setText] = useState('');
+  const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
@@ -31,6 +33,8 @@ const FeedbackForm = () => {
         <h1 className='feedback-form__title'>
           How would you rate your service with us?
         </h1>
+
+        <SelectRating rating={rating} setRating={setRating} />
 
         <div className='feedback-form__input'>
           <input

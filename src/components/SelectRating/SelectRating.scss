@@ -1,0 +1,9 @@
+[type='radio'] {
+  opacity: 0;
+}
+
+// Selects every `label` element that is preceded by `checked` label
+[type='radio']:checked ~ label {
+  background: #ff6a95;
+  color: #fff;
+}

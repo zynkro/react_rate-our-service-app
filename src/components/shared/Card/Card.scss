@@ -6,6 +6,10 @@
   margin: 20px 0;
   position: relative;
 
+  @media (max-width: 480px) {
+    padding: 40px 16px;
+  }
+
   & h2 {
     font-size: 22px;
     font-weight: 600;

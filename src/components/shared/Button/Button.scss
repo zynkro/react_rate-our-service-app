@@ -1,33 +1,34 @@
 .btn {
+  min-width: 80px;
+  min-height: 40px;
+
   color: #fff;
   border: 0;
   border-radius: 8px;
-  color: #fff;
-  width: 100px;
-  height: 40px;
+
   cursor: pointer;
-}
 
-.btn-primary {
-  background-color: #202142;
-}
+  &:hover {
+    opacity: 0.9;
+  }
 
-.btn-secondary {
-  background: #ff6a95;
-}
+  &:disabled {
+    background-color: #ddd;
+    color: #555;
 
-.btn:hover {
-  transform: scale(0.98);
-  opacity: 0.9;
-}
+    cursor: auto;
+  }
 
-.btn:disabled {
-  background-color: #ddd;
-  color: #555;
-  cursor: auto;
-}
+  &:disabled:hover {
+    transform: scale(1);
+    opacity: 1;
+  }
 
-.btn:disabled:hover {
-  transform: scale(1);
-  opacity: 1;
+  &--primary {
+    background-color: #202142;
+  }
+
+  &--secondary {
+    background-color: #ff6a95;
+  }
 }

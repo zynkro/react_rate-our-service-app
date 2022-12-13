@@ -53,8 +53,9 @@ const FeedbackForm = ({ handleAdd }) => {
 
         <SelectRating rating={rating} setRating={setRating} />
 
-        <div className='feedback-form__input'>
+        <div className='feedback-form__input-group'>
           <input
+            className='feedback-form__text'
             onChange={handleTextChange}
             type='text'
             placeholder='Write a review'

@@ -10,8 +10,8 @@ const AboutPage = () => {
         <h1>About this project</h1>
 
         <p>
-          This is a simple React application that could be used to leave a
-          feedback (review) for a service (or product).
+          This is a React application that allows website visitors rate
+          company's product or service, and leave a short review description.
         </p>
 
         <p>

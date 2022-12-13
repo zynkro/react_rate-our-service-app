@@ -1,3 +1,5 @@
+import './SelectRating.scss';
+
 const SelectRating = ({ rating, setRating }) => {
   const handleChange = (e) => {
     setRating(Number(e.currentTarget.value));

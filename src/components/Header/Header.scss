@@ -11,6 +11,11 @@ $color-accent-pink: rgb(255, 106, 149);
   background: #222;
 
   &__title {
+    font-size: 1.8rem;
     color: $color-accent-pink;
+
+    @media (max-width: 480px) {
+      font-size: 1.4rem;
+    }
   }
 }

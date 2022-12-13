@@ -14,6 +14,8 @@ $color-accent-pink: rgb(255, 106, 149);
   background: $color-accent-pink;
   border-radius: 50%;
 
+  transition: background-color 200ms;
+
   &:hover {
     background-color: #444;
   }

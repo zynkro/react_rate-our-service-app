@@ -1,0 +1,25 @@
+$color-accent-pink: rgb(255, 106, 149);
+
+.about-link {
+  position: fixed;
+  bottom: 1.3rem;
+  right: 1.3rem;
+
+  width: 30px;
+  height: 30px;
+
+  box-sizing: content-box;
+  padding: 0.4rem;
+
+  background: $color-accent-pink;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #444;
+  }
+
+  & a {
+    color: white;
+    cursor: pointer;
+  }
+}

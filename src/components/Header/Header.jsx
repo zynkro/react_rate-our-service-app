@@ -1,10 +1,12 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Header.scss';
 
-const Header = ( { title } ) => (
+const Header = ({ title }) => (
   <header className='header'>
-    <h1 className="header__title">{title}</h1>
+    <Link to='/'>
+      <h1 className='header__title'>{title}</h1>
+    </Link>
   </header>
 );
 

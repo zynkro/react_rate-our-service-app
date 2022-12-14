@@ -2,17 +2,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { useContext } from 'react';
 import FeedbackContext from '../../contexts/FeedbackContext';
+import Spinner from '../shared/Spinner/Spinner';
 
 import FeedbackItem from './../FeedbackItem/FeedbackItem';
 
 const FeedbackList = () => {
-  const { feedbacks } = useContext(FeedbackContext);
+  const { feedbacks, isLoading } = useContext(FeedbackContext);
 
-  if (!feedbacks || feedbacks.length === 0) {
+  // Show 'No reviews yet' only when isLoading has finished ...
+  // this state is true until it fetches data from the API
+  if (isLoading === false && (!feedbacks || feedbacks.length === 0)) {
     return <p>No reviews yet</p>;
   }
 
-  return (
+  return isLoading ? (
+    <Spinner />
+  ) : (
     <div className='feedback-list'>
       <AnimatePresence>
         {feedbacks.map((feedback, index) => (
@@ -22,10 +27,7 @@ const FeedbackList = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <FeedbackItem
-              key={index}
-              feedback={feedback}
-            />
+            <FeedbackItem key={index} feedback={feedback} />
           </motion.div>
         ))}
       </AnimatePresence>

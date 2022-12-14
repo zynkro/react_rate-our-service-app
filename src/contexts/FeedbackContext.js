@@ -16,6 +16,8 @@ export const FeedbackProvider = ({ children }) => {
     editMode: false, // edit-mode when true
   });
 
+  const [isLoading, setIsLoading] = useState(true);
+
   // Run only once when it loades - empty array of depenedencies
   useEffect(() => {
     fetchFeedbacks();
@@ -29,6 +31,7 @@ export const FeedbackProvider = ({ children }) => {
     const data = await response.json();
 
     setFeedbacks(data);
+    setIsLoading(false);
   };
 
   const addFeedback = (newFeedback) => {
@@ -75,6 +78,7 @@ export const FeedbackProvider = ({ children }) => {
         deleteFeedback,
         editFeedback,
         updateFeedback,
+        isLoading,
       }}
     >
       {children}

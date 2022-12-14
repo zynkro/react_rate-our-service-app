@@ -24,6 +24,14 @@ export const FeedbackProvider = ({ children }) => {
     },
   ]);
 
+  const [feedbackEditState, setFeedbackEditState] = useState({
+    // Default state:
+    //  - currently-edited item: empty object, but when edit-button is
+    //    clicked on, I'm adding previous rating and text to this object
+    feedback: {},
+    editMode: false, // edit-mode when true
+  });
+
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();
     setFeedbacks([newFeedback, ...feedbacks]);
@@ -35,13 +43,23 @@ export const FeedbackProvider = ({ children }) => {
     }
   };
 
+  // Triggered via edit button, which activates editMode, and moves the given
+  // feedback to `feedbackEditState`, which is then used by `updateFeedback`
+  const editFeedback = (feedback) => {
+    setFeedbackEditState({
+      feedback,
+      editMode: true,
+    });
+  };
   return (
     // Via `Provider`, all children will have access to the given context
     <FeedbackContext.Provider
       value={{
         feedbacks,
+        feedbackEditState, // form needs to know about this state
         addFeedback,
         deleteFeedback,
+        editFeedback,
       }}
     >
       {children}

@@ -9,7 +9,7 @@ import Card from '../shared/Card/Card';
 import './FeedbackItem.scss';
 
 function FeedbackItem({ feedback }) {
-  const { deleteFeedback } = useContext(FeedbackContext);
+  const { deleteFeedback, editFeedback } = useContext(FeedbackContext);
 
   return (
     <Card>
@@ -22,7 +22,7 @@ function FeedbackItem({ feedback }) {
       </button>
 
       <button
-        onClick={() => deleteFeedback(feedback.id)}
+        onClick={() => editFeedback(feedback)}
         className='feedback-item__edit-button'
       >
         <FaEdit color='violet' />

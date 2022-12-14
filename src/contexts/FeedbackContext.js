@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const FeedbackContext = createContext();
@@ -6,23 +6,7 @@ const FeedbackContext = createContext();
 // `Provider` provides data to all of its children. Which data? Data passeed in via
 // a single prop called `value` - object that can contain functions, variables etc.
 export const FeedbackProvider = ({ children }) => {
-  const [feedbacks, setFeedbacks] = useState([
-    {
-      id: 1,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      rating: 10,
-    },
-    {
-      id: 2,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-      rating: 5,
-    },
-    {
-      id: 3,
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-      rating: 7,
-    },
-  ]);
+  const [feedbacks, setFeedbacks] = useState([]);
 
   const [feedbackEditState, setFeedbackEditState] = useState({
     // Default state:
@@ -31,6 +15,21 @@ export const FeedbackProvider = ({ children }) => {
     feedback: {},
     editMode: false, // edit-mode when true
   });
+
+  // Run only once when it loades - empty array of depenedencies
+  useEffect(() => {
+    fetchFeedbacks();
+  }, []);
+
+  // Fetch all feedbacks
+  const fetchFeedbacks = async () => {
+    const response = await fetch(
+      'http://localhost:5000/feedbacks?_sort=id&_order=desc',
+    );
+    const data = await response.json();
+
+    setFeedbacks(data);
+  };
 
   const addFeedback = (newFeedback) => {
     newFeedback.id = uuidv4();

@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import FeedbackContext from '../../contexts/FeedbackContext';
 
 import Button from '../shared/Button/Button';
@@ -14,7 +12,16 @@ const FeedbackForm = () => {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
-  const { addFeedback } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEditState, updateFeedback } =
+    useContext(FeedbackContext);
+
+  useEffect(() => {
+    if (feedbackEditState.editMode === true) {
+      setBtnDisabled(false);
+      setText(feedbackEditState.feedback.text);
+      setRating(feedbackEditState.feedback.rating);
+    }
+  }, [feedbackEditState]);
 
   const handleTextChange = (e) => {
     if (e.target.value === '') {
@@ -43,9 +50,16 @@ const FeedbackForm = () => {
         rating,
       };
 
-      addFeedback(newFeedback);
+      if (feedbackEditState.editMode === true) {
+        updateFeedback(feedbackEditState.feedback.id, newFeedback);
+      } else {
+        // if there's nothing to be edited, just add it as before
+        addFeedback(newFeedback);
+      }
 
-      setText(''); // clear the text field after form submisson
+      // Reset text and selected-rating after we submit the form
+      setText('');
+      setRating(10);
     }
   };
 

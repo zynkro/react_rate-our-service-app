@@ -9,17 +9,17 @@ export const FeedbackProvider = ({ children }) => {
   const [feedbacks, setFeedbacks] = useState([
     {
       id: 1,
-      text: 'This is feedback item 1',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       rating: 10,
     },
     {
       id: 2,
-      text: 'This is feedback item 2',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
       rating: 5,
     },
     {
       id: 3,
-      text: 'This is feedback item 3',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       rating: 7,
     },
   ]);
@@ -51,8 +51,23 @@ export const FeedbackProvider = ({ children }) => {
       editMode: true,
     });
   };
+
+  // Used when feedbackEditState.editMode is true
+  const updateFeedback = (id, updatedFeedback) => {
+    setFeedbacks(
+      feedbacks.map((feedback) =>
+        feedback.id === id
+          ? {
+              ...feedback,
+              ...updatedFeedback,
+            }
+          : feedback,
+      ),
+    );
+  };
+
   return (
-    // Via `Provider`, all children will have access to the given context
+    // `Provider` allows all children access the given context directly
     <FeedbackContext.Provider
       value={{
         feedbacks,
@@ -60,6 +75,7 @@ export const FeedbackProvider = ({ children }) => {
         addFeedback,
         deleteFeedback,
         editFeedback,
+        updateFeedback,
       }}
     >
       {children}

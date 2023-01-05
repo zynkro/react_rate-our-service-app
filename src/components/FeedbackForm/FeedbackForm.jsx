@@ -57,9 +57,11 @@ const FeedbackForm = () => {
         addFeedback(newFeedback);
       }
 
-      // Reset text and selected-rating after we submit the form
+      // Note: reset the form to default state after submission
       setText('');
       setRating(10);
+      setBtnDisabled(true);
+      feedbackEditState.editMode = false;
     }
   };
 

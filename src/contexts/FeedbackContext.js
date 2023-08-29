@@ -5,7 +5,23 @@ const FeedbackContext = createContext();
 // `Provider` provides data to all of its children. Which data? Data passeed in via
 // a single prop called `value` - object that can contain functions, variables etc.
 export const FeedbackProvider = ({ children }) => {
-  const [feedbacks, setFeedbacks] = useState([]);
+  const [feedbacks, setFeedbacks] = useState([
+    {
+      text: 'Nemo enim ipsam sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+      rating: 7,
+      id: 1,
+    },
+    {
+      text: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet!',
+      rating: 10,
+      id: 2,
+    },
+    {
+      text: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur ...',
+      rating: 8,
+      id: 3,
+    },
+  ]);
 
   const [feedbackEditState, setFeedbackEditState] = useState({
     // Default state:

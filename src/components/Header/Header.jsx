@@ -4,7 +4,7 @@ import './Header.scss';
 
 const Header = ({ title }) => (
   <header className='header'>
-    <Link to='/'>
+    <Link to='/react-js/rate-our-service/'>
       <h1 className='header__title'>{title}</h1>
     </Link>
   </header>

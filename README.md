@@ -17,9 +17,19 @@ The objectives behind this project are the development and implementation of sev
 
 This Rate Our Service App serves as a practical application of these React fundamentals. The goal is to create an interactive user experience where individuals can evaluate our service quality. Users will have the ability to rate the service using diverse metrics, submit their reviews where they can share their thoughts, and view collective feedback from other users.
 
-While this is primarily a beginner project, its development process is designed to be dynamic and incremental. As my knowledge and skills in React continue to expand, I will actively update the app with new features to incorporate more advanced concepts. 
+While this is primarily a beginner project, its development process is designed to be dynamic and incremental. As my knowledge and skills in React continue to expand, I will actively update the app with new features to incorporate more advanced concepts.
 
-# Instructions to Download and Run the Project
+## Latest Changes
+
+This project now utilizes the JSON Server package for local data storage. Data is stored in the *db.json* file within the project. The implementation also employs the *concurrently* package to enable simultaneous operation of the app and the dummy JSON server.
+
+Running the App: To run the application and the dummy JSON server simultaneously, use the following command:
+
+```
+npm run dev
+```
+
+## Instructions to Download and Run the Project
 
 **Prerequisites:** Make sure that you have Node.js and npm installed on your local machine. If you do not have these, you can download and install them from [here](https://nodejs.org/en/download/).
 
@@ -59,7 +69,7 @@ npm start
 
 Note: `npm start` runs the app in development mode. The app will automatically reload if you make changes to the code. To view the app, open [http://localhost:3000](http://localhost:3000) in your browser window.
 
-**Additional Note:** In case of any errors during installation or running the app, make sure to check error log for more details. It may happen due to various reasons: missing dependencies, port already in use, etc. 
+**Additional Note:** In case of any errors during installation or running the app, make sure to check error log for more details. It may happen due to various reasons: missing dependencies, port already in use, etc.
 
 If you encounter an error stating that the local host is already in use, you have the option of either freeing up port 3000 or changing the ports. If you would like to run the app on a different port, modify the `start` script in your `package.json` file like so:
 
